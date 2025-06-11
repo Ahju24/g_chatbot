@@ -14,7 +14,9 @@ def webhook():
     parameters = req.get("queryResult", {}).get("parameters", {})
 
     if intent == "Welcome_Gendered - gender":
-        gender = parameters.get("Gender", "").lower()
+        #gender = parameters.get("Gender", "").lower()
+        raw_gender = parameters.get("Gender", "")
+        gender = raw_gender[0].lower() if isinstance(raw_gender, list) else raw_gender.lower()
 
         if gender not in ["male", "female"]:
             response_text = (
