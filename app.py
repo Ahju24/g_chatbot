@@ -177,12 +177,7 @@ def webhook():
 
         # Compose summary + recommendation
         response_text = (
-            f"Great, let's summarize your preferences:\n"
-            f"- Event: {event}\n"
-            f"- Weather: {temperature} {season}\n"
-            f"- Favorite color: {color}\n"
-            f"- Clothing preference: {clothing_type}.\n\n"
-            f"Based on that, {title}, I recommend {outfit}.\n"
+            f"Based on your preferences, {title}, I recommend {outfit} for your {temperature} {season} {event}.\n"
             f"I hope it matches your style!\n\n"
             f"To complete your experience, please take our quick follow-up survey:\n{survey_link}"
         )
