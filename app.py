@@ -210,5 +210,5 @@ def webhook():
     return jsonify({"fulfillmentText": "I'm not sure how to help with that."})
 
 
-if __name__ == '__main__':
-   app.run(port=5000)
+#if __name__ == '__main__':
+#   app.run(port=5000)
