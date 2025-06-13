@@ -175,7 +175,10 @@ def webhook():
             elif clothing_type == "casual":
                 outfit = f"a relaxed {color} t-shirt with jeans and sneakers"
 
-        survey_link = ""
+        
+        # Compose return link (assuming you store pid in session or from query param)
+        pid = req.args.get('pid', 'missingPID')  # or fetch it another way
+        survey_link = f"https://www.soscisurvey.de/seminar19/?r=return&pid={pid}"
 
         # Compose summary + recommendation
         response_text = (
@@ -187,12 +190,27 @@ def webhook():
         #Shorter answer
         #f"{title}, I recommend {outfit} for your {temperature} {season} {event}.\n\n"
 
+        # Return both text and payload
         return jsonify({
-            "fulfillmentText": response_text
+            "fulfillmentText": response_text,
+            "fulfillmentMessages": [
+                {
+                    "text": {
+                        "text": [response_text]
+                    }
+                },
+                {
+                    "payload": {
+                        "type": "return_link"
+                    }
+                }
+            ]
         })
 
     elif intent == "ClosingIntent":
-        survey_link = ""
+        # Compose return link (assuming you store pid in session or from query param)
+        pid = req.args.get('pid', 'missingPID')  # or fetch it another way
+        survey_link = f"https://www.soscisurvey.de/seminar19/?r=return&pid={pid}"
 
         response_text = (
             "You're very welcome! If you haven't already, please feel free to complete our quick follow-up survey: "
@@ -200,7 +218,19 @@ def webhook():
         )
 
         return jsonify({
-            "fulfillmentText": response_text
+            "fulfillmentText": response_text,
+            "fulfillmentMessages": [
+                {
+                    "text": {
+                        "text": [response_text]
+                    }
+                },
+                {
+                    "payload": {
+                        "type": "return_link"
+                    }
+                }
+            ]
         })
 
     # Default fallback
