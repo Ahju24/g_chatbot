@@ -177,7 +177,7 @@ def webhook():
 
         
         # Compose return link (assuming you store pid in session or from query param)
-        pid = req.args.get('pid', 'missingPID')  # or fetch it another way
+        pid = request.args.get('pid', 'missingPID')  # or fetch it another way
         survey_link = f"https://www.soscisurvey.de/seminar19/?r=return&pid={pid}"
 
         # Compose summary + recommendation
@@ -209,7 +209,7 @@ def webhook():
 
     elif intent == "ClosingIntent":
         # Compose return link (assuming you store pid in session or from query param)
-        pid = req.args.get('pid', 'missingPID')  # or fetch it another way
+        pid = request.args.get('pid', 'missingPID')  # or fetch it another way
         survey_link = f"https://www.soscisurvey.de/seminar19/?r=return&pid={pid}"
 
         response_text = (
