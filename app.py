@@ -21,7 +21,7 @@ def webhook():
         if gender not in ["male", "female"]:
             response_text = (
                 "Thank you for sharing that. While we respect all gender identities, "
-                "this style assistant currently supports only *male* or *female* options for outfit suggestions. "
+                "this style assistant currently supports only _male_ or _female_ options for outfit suggestions. "
                 "Could you please choose one of those to continue?"
             )
             return jsonify({
