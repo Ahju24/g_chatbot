@@ -61,6 +61,16 @@ def webhook():
     elif intent == "SelectEventIntent-female" or intent == "SelectEventIntent-male":
         event = parameters.get("Event", "").lower()
 
+        valid_events = ["job interview", "date", "lecture"]
+        if event not in valid_events:
+            return jsonify({
+                "fulfillmentText": (
+                    "I'm sorry, I didn't catch that. Please choose one of the following events: "
+                    "job interview, date, lecture."
+                ),
+                "outputContexts": req.get("queryResult", {}).get("outputContexts", [])
+            })
+
         # Extract gender/title from previous context
         gender = ""
         title = ""
