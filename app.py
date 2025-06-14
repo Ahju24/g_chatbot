@@ -195,7 +195,7 @@ def webhook():
             f"Thanks for sharing all your preferences, {title}!\n\n"
             f"Based on what you've told me, I’d recommend {outfit} — perfect for a {temperature} {season} {event}.\n"
             f"I hope it matches your style!\n\n"
-            f"To complete your experience, please click the button just below the page title to return to the survey.\n"
+            f"To complete your experience, please click the button on the top to return to the survey.\n"
         )
 
         #Shorter answer
