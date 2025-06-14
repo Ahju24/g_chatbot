@@ -108,7 +108,7 @@ def webhook():
                 title = context.get("parameters", {}).get("Title", "")
                 break
 
-        response_text = f"Got it, {title} — a {temperature} {season} day. Thanks for the information! Do you have any favorite colors you'd like me to consider?"
+        response_text = f"Got it, {title} — a {temperature} {season} day. Thanks for the information! Do you have one favorite color you'd like me to consider?"
 
         return jsonify({
             "fulfillmentText": response_text
