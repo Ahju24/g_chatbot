@@ -182,9 +182,10 @@ def webhook():
 
         # Compose summary + recommendation
         response_text = (
-            f"Based on your preferences, {title}, I recommend {outfit} for your {temperature} {season} {event}.\n"
+            f"Thanks for sharing all your preferences, {title}!\n\n"
+            f"Based on what you've told me, I’d recommend {outfit} — perfect for a {temperature} {season} {event}.\n"
             f"I hope it matches your style!\n\n"
-            f"To complete your experience, please take our quick follow-up survey:\n{survey_link}"
+            f"To complete your experience, please click the button just below the page title to return to the survey.\n"
         )
 
         #Shorter answer
@@ -213,8 +214,8 @@ def webhook():
         survey_link = f"https://www.soscisurvey.de/seminar19/?r=return&pid={pid}"
 
         response_text = (
-            "You're very welcome! If you haven't already, please feel free to complete our quick follow-up survey: "
-            f"{survey_link}\n\n Have a great day!"
+            "You're very welcome! If you haven't already, please feel free to complete our quick follow-up survey. "
+            f"Have a great day!"
         )
 
         return jsonify({
