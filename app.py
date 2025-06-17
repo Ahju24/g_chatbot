@@ -98,7 +98,7 @@ def webhook():
         })
 
 
-    elif intent == "GenderedWeatherIntent":
+    elif intent == "WeatherIntent":
         season = parameters.get("Season", "").lower()
         temperature = parameters.get("Temperature", "").lower()
 
